@@ -12,16 +12,16 @@
 
 * in /path/to/app
   
-  * make a temp dir  
-    $ mkdir -p tmp/puma   
+  * make a temp dir
+    $ mkdir -p tmp/puma
 
-  * modify config/upload to fit your server and domain  
-    $ cp config/upload /etc/nginx/sites-available/   
-    $ ln -s /etc/nginx/sites-available/upload /etc/nginx/sites-enabled/upload   
+  * modify config/upload to fit your server and domain
+    $ cp config/upload /etc/nginx/sites-available/
+    $ ln -s /etc/nginx/sites-available/upload /etc/nginx/sites-enabled/upload
 
-  * reload nginx  
-    $ service nginx configtest   
-    $ service nginx reload   
+  * reload nginx
+    $ service nginx configtest
+    $ service nginx reload
 
-  * run start.sh  
-    $ sh start.sh 
+  * run start.sh   
+    $ sh start.sh
