@@ -13,15 +13,15 @@
 * in /path/to/app
   
   * make a temp dir  
-    ` mkdir -p tmp/puma `  
+    $ mkdir -p tmp/puma   
 
   * modify config/upload to fit your server and domain  
-    ` cp config/upload /etc/nginx/sites-available/ `  
-    ` ln -s /etc/nginx/sites-available/upload /etc/nginx/sites-enabled/upload `  
+    $ cp config/upload /etc/nginx/sites-available/   
+    $ ln -s /etc/nginx/sites-available/upload /etc/nginx/sites-enabled/upload   
 
   * reload nginx  
-    ` service nginx configtest `  
-    ` service nginx reload `  
+    $ service nginx configtest   
+    $ service nginx reload   
 
   * run start.sh  
-    ` sh start.sh `
+    $ sh start.sh 
