@@ -1,0 +1,17 @@
+<h1>File uploader</h1>
+<% echo @flash if @flash %>
+<form action='/upload' method='post' enctype='multipart/form-data'>
+  <p>
+    <input type='file' name='file'/>
+  </p>
+  <p>
+    <input type='submit' value='Upload'/>
+  </p>
+<h3>Files</h3>
+<ul>
+  <% @files.each do |file| %>
+    <li>
+      <img src='files/<%= file %>' width='200'/> <a href='files/<%= file %>'>http://static.leomaster.com/files/<%= file %></a>
+    </li>
+  <% end %>
+</url>
