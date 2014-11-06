@@ -2,7 +2,7 @@
 
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require 'slim'
+require 'erb'
 
 configure {
   set :server, :puma
@@ -15,7 +15,7 @@ class FileUpload < Sinatra::Base
 
     set :views, File.join(File.dirname(__FILE__), 'views')
     set :public_folder, File.join(File.dirname(__FILE__), 'public')
-    set :files, File.join(settings.public_folder, 'files')
+    set :files, File.join(settings.public_folder, 'apks')
     set :unallowed_paths, ['.', '..']
   end
 
@@ -30,17 +30,17 @@ class FileUpload < Sinatra::Base
   end
 
   not_found do
-    slim 'h1 404'
+    erb 'h1 404'
   end
 
   error do
-    slim "Error (#{request.env['sinatra.error']})"
+    erb "Error (#{request.env['sinatra.error']})"
   end
 
   get '/' do
     @files = Dir.entries(settings.files) - settings.unallowed_paths
 
-    slim :index
+    erb :index
   end
   
   post '/upload' do
