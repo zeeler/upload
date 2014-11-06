@@ -15,7 +15,7 @@ class FileUpload < Sinatra::Base
 
     set :views, File.join(File.dirname(__FILE__), 'views')
     set :public_folder, File.join(File.dirname(__FILE__), 'public')
-    set :files, File.join(settings.public_folder, 'apks')
+    set :files, File.join(settings.public_folder, 'files')
     set :unallowed_paths, ['.', '..']
   end
 
