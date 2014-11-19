@@ -17,6 +17,7 @@ class FileUpload < Sinatra::Base
     set :public_folder, File.join(File.dirname(__FILE__), 'public')
     set :files, File.join(settings.public_folder, 'files')
     set :unallowed_paths, ['.', '..']
+    set :formats, ".png .jpg .gif .bmp"
   end
 
   helpers do
@@ -48,13 +49,17 @@ class FileUpload < Sinatra::Base
       filename = params[:file][:filename]
       file = params[:file][:tempfile]
 
-      File.open(File.join(settings.files, filename), 'wb') do |f|
-        f.write file.read
+      if !filename.index(settings.formats).nil?
+        File.open(File.join(settings.files, filename), 'wb') do |f|
+          f.write file.read
+        end 
+      else
+        flash 'Only image file(png,gif,jpg) can be upload here!'
       end
 
       flash 'Upload successful'
     else
-      flash 'You have to choose a file'
+      flash 'You have to choose a image file'
     end
 
     redirect '/'

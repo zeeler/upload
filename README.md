@@ -1,5 +1,7 @@
 # A simple Sinatra file upload application
 
+* Only for image file upload!!!
+
 ## Setup using [Bundler](http://gembundler.com/ "Bundler")
     $ bundle install
 
