@@ -64,4 +64,15 @@ class FileUpload < Sinatra::Base
 
     redirect '/'
   end
+  
+  # parse some apk file url to a fix url : dl.leomaster.com/theme
+  get '/theme' do
+    redirect '/theme/appmaster_theme.apk'
+  end
+
+  # parse appmaster.apk to a fix url : dl.leomaster.com/appmaster
+  get '/appmaster' do
+    redirect '/release/appmaster_guanwang.apk'
+  end
+  
 end
