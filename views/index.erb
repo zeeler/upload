@@ -11,7 +11,7 @@
 <ul>
   <% @files.each do |file| %>
     <li>
-      <img src='files/<%= file %>' width='200'/> <a href='files/<%= file %>'>http://static.leomaster.com/files/<%= file %></a> &nbsp; - &nbsp; <%= File.new(file).mtime %>
+      <img src='files/<%= file %>' width='200'/> <a href='files/<%= file %>'>http://static.leomaster.com/files/<%= file %></a> &nbsp; - &nbsp; <%= File.mtime("public/files/"+file) %>
     </li>
   <% end %>
 </url>

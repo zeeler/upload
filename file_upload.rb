@@ -38,7 +38,7 @@ class FileUpload < Sinatra::Base
   end
 
   get '/' do
-    @files = Dir.entries(settings.files) - settings.unallowed_paths
+    @files = Dir.entries(settings.files).sort_by{|f| File.mtime(settings.files + "/" + f)}.reverse! - settings.unallowed_paths
 
     erb :index
   end
